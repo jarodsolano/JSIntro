@@ -245,3 +245,32 @@
 //    }
 //}
 
+var castle = {
+    soldiers: 865,
+    capacity: 3000,
+    keep: {
+        soldiers: 19,
+        capacity: 40,
+        drawbridge: {
+            soldiers: 8,
+            capacity: 20,
+            open: function(){
+                console.log("rrrBang!");
+            },
+            close: function(){
+              console.log("yunClack!");
+            }
+        }
+    }
+};
+
+var reinforcements = 12,
+    o = castle.keep.drawbridge;
+if(o.capacity >= o.soldiers + reinforcements) {
+    o.open();
+    o.soldiers += reinforcements;
+    console.log("Drawbridge soldiers: " + o.soldiers);
+    o.close();
+} else {
+    console.log("Reinforcements would require split unit.");
+}
